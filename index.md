@@ -3,7 +3,29 @@ layout: default
 title: {{ site.name }}
 ---
 
-# Talks
+# Index
+Work in progress
+
+# Contribute
+
+## How to contribute?
+
+Feel free to improve the reference. Check out the repository, follow the setup steps and make your proposals. Create a PR with your proposal and we'll discuss the proposal before merging it. Make sure that CI is passing and the website/projects compile accordingly.
+
+**We're looking forward to your improvements!**
+
+## Thanks
+
+Special thanks to all the contributors listed below that have helped to make this reference possible and spread the idea of modularizing code:
+
+- Felix Gabel - [@blinker13](https://github.com/blinker13)
+- Juan Cazalla -  [@juancazalla](https://github.com/juancazalla)
+- Isaac Roldán - [@isaacroldan](https://github.com/isaacroldan)
+- Matej Balantič - [@MatejBalantic](https://github.com/MatejBalantic)
+
+# Resources
+
+## Talks
 
 - A journey into frameworks and Swift:
   - [Slides](https://speakerdeck.com/pepibumur/a-journey-into-frameworks-and-swift)
@@ -12,12 +34,16 @@ title: {{ site.name }}
 - Framework Oriented Programming:
   - [Slides](https://speakerdeck.com/pepibumur/framework-oriented-programming)
   - [Video (Spanish)](https://www.youtube.com/watch?v=UFuDpcB4yTc)
-  
-# Workshops
+
+## Workshops
 
 - Modularizing your apps:
   - [Slides](https://speakerdeck.com/pepibumur/modularizing-your-apps)
   - [Repository](https://github.com/soundcloud/weatherito)
+
+## Articles
+
+- [Micro Features Architecture for iOS](https://blog.caramba.io/micro-features-architecture-for-ios-f81ca18f03ac)
 
 # References
 
