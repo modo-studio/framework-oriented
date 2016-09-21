@@ -6,6 +6,15 @@ title: {{ site.name }}
 ## :warning: Work in progress :warning:
 We're migrating the existing reference on the repository [pepibumur/framework-oriented-programming](https://github.com/pepibumur/framework-oriented-programming) to its own website. Stay tuned!.
 
+# Setups
+Would you like to know which setup is best according to your project/team structure? Start by answering the following questions:
+
+## Freelance setup
+Nothing in this section yet
+
+## Feature teams setup
+Nothing in this section yet
+
 # Contribute
 
 ## How to contribute?
