@@ -3,8 +3,8 @@ layout: default
 title: {{ site.name }}
 ---
 
-# Index
-Work in progress
+## :warning: Work in progress :warning:
+We're migrating the existing reference on the repository [pepibumur/framework-oriented-programming](https://github.com/pepibumur/framework-oriented-programming) to its own website. Stay tuned!.
 
 # Contribute
 
