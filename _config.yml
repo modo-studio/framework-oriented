@@ -1,17 +1,10 @@
-# Setup
-title:        Project or Site name
-tagline:      A responsive theme for your project on GitHub Pages
+title:        Framework Oriented Programming
+tagline:      A reference for Framework Oriented Programming for iOS/tvOS/macOS/watchOS
 baseurl:      ""
 paginate:     1
-
-# About/contact
 author:
-  name:       Author name
-  url:        http://yourhomepage.com 
-
-# Gems
+  name:       Caramba
+  url:        http://frameworkoriented.io 
 gems:
   - jekyll-paginate
-
-#Others
 markdown: kramdown
