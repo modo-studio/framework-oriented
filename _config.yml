@@ -1,6 +1,6 @@
 title:        Framework Oriented Programming
 tagline:      A reference for Framework Oriented Programming for iOS/tvOS/macOS/watchOS
-baseurl:      "/framework-oriented"
+baseurl:      ""
 paginate:     1
 author:
   name:       Caramba
