@@ -6,11 +6,19 @@ title: {{ site.name }}
 ## :warning: Work in progress :warning:
 We're migrating the existing reference on the repository [pepibumur/framework-oriented-programming](https://github.com/pepibumur/framework-oriented-programming) to its own website. Stay tuned!.
 
+# Migration
+> The purpose of this section is explaining the best approach for transitioning from a existing monolithic project to a frameworks setup.
+
 # Setups
 Would you like to know which setup is best according to your project/team structure? Start by answering the following questions:
 
 ## Freelance setup
-Nothing in this section yet
+
+### Need 
+Freelancers tend to repeat code across projects. That doesn't make sense, does it? A frameworks setup would help you to save time. 
+
+### How
+Just create a *FreelanceKit/StudioKit/MyNameKit* with the components that you usually repeat in projects *(e.g. database tooling, api tooling...)*.
 
 ## Feature teams setup
 Nothing in this section yet
