@@ -187,13 +187,46 @@ end
 
 ---
 
-// TODO
-- Explain how the approach help with the issues found:
-  - Easily work on new platform.
-  - Decrease the conflicts between teams.
-  - Advantages:
-    - Their own persistence solution.
-    - Their own language (Swift).
+### New platforms/targets
+## _Working only in_
+# _UI_
+
+---
+
+# _Atomic teams_
+## that own frameworks
+
+---
+
+## __Reuse__
+## Business Logic
+
+---
+
+## __Select__
+## The features that we need
+
+---
+
+### Decide about _persistence_
+### Decide about _patterns_
+### Decide about _architecture_
+### Decide about _language_
+
+---
+
+### Framework
+## Exposes an _API_
+
+---
+
+# ![inline, 170%](images/icon-framework.png) < API > ![inline, 170%](images/icon-framework.png)
+
+---
+
+### Less _interdependencies_
+### Less _conflicts_
+### Less _regressions_
 
 ---
 
@@ -229,7 +262,28 @@ end
 
 ---
 
-break
+## _Workspace_
+### Multiple framework projects
+#### Linked/Embedded
+
+---
+
+## Multi-Platform Framework
+
+```bash
+# Supported platforms
+SUPPORTED_PLATFORMS = iphoneos iphonesimulator appletvsimulator appletvos macosx watchsimulator watchos
+
+# Valid architectures
+VALID_ARCHS[sdk=macosx*] = x86_64
+VALID_ARCHS[sdk=iphone*] = arm64 armv7 armv7s
+
+# Frameworks Search Path
+LD_RUNPATH_SEARCH_PATHS[sdk=iphone*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Frameworks @loader_path/../Frameworks
+LD_RUNPATH_SEARCH_PATHS[sdk=watch*]   = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
+```
 
 ---
 
@@ -261,16 +315,26 @@ break
 
 ---
 
-// TODO - Add setup schema
+## Freelance
+
+![inline](images/setup_freelance.png)
+
+---
+
+## Feature Teams
+
+![inline](images/setup_teams.png)
+
+---
+
+## Multi-Platform apps
+
+![inline](images/setup_platforms.png)
 
 ---
 
 ## _Simplicity_
 ### and clarity
-
----
-
-// TODO - Add examples of stacks that support the previous statement.
 
 ---
 
@@ -305,7 +369,11 @@ break
 # Reference
 
 - [frameworkoriented.io](frameworkoriented.io)
-- Photos from [Unsplash](https://unsplash.com)
+- [Building Modern Frameworks](https://developer.apple.com/videos/play/wwdc2014/416/)
+- [How to create a Framework for iOS](https://www.raywenderlich.com/65964/create-a-framework-for-ios)
+- [Framework vs Library](http://www.knowstack.com/framework-vs-library-cocoa-ios/)
+- [Static and Dynamic libraries](https://pewpewthespells.com/blog/static_and_dynamic_libraries.html)
+- [The Unofficial Guide to xcconfig files](https://pewpewthespells.com/blog/xcconfig_guide.html)
 
 ---
 
@@ -313,5 +381,8 @@ break
 ## _Questions?_
 
 ![](images/krakow.jpeg)
+
+##### _Photos from_ [_Unsplash_](https://unsplash.com)
+#### _Slides_ [_bit.ly/framework-oriented_](http://bit.ly/framework-oriented)
 
 ---
