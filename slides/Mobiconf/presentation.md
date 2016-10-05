@@ -350,6 +350,29 @@ end
 
 ## Using CocoaPods
 
+#### _Create pods_
+#### _Link the project against them_
+
+---
+
+```bash
+mkdir Frameworks; cd Frameworks;
+pod lib create Core
+pod lib create UI
+pod lib create Player
+pod lib create Offline
+```
+
+---
+
+```ruby
+Pod::Spec.new do |s|
+  s.name = 'Player'
+  s.dependency 'Core'
+  s.dependency 'UI'
+end
+```
+
 ---
 
 ```ruby
