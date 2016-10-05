@@ -44,7 +44,7 @@
 
 ---
 
-# 💌📷📔🗒
+# 💌📷🗒
 
 ^ Some examples of these things could be love letters, photos, diaries, notes.
 
@@ -94,34 +94,6 @@ __Wikipedia__
 
 ---
 
-## _Saving time 👍_
-### with others code
-
-^ By using these external frameworks you save a lot of time coding.
-^ When networking APIs were complex on the iOS world libraries like AFNetworking helped a lot.
-^ As developers we're told to reuse code and optimize our time. Why writing something that has already been written by other developer in the community?
-
----
-
-## _Contributing 👍_
-### with the community
-
-^ Creating external frameworks we contribute with the community.
-^ We invest time and resources in implementing a reusable piece of code and offer and maintain it for other developers teams that might be interested in using that component that you developed.
-
-
----
-
-## _Maintainability_
-## _costs 👎_
-### features and issues
-
-^ Contributing with the community implies some costs.
-^ A library is something that you have to maintain. Issues might arise, or features might be requested.
-^ It's up to you to continue developing the library actively or encourage the community to do it.
-
----
-
 ```ruby
 inhibit_all_warnings!
 use_frameworks!
@@ -155,7 +127,7 @@ end
 ---
 
 ### :apple:
-## _1 Project_
+## _1 app target_
 ### +
 ## X External frameworks
 
@@ -167,22 +139,25 @@ end
 ## _projects_
 ![50%](images/xcode_icon.png)
 
-^ That setup works pretty well for simple projects, like pet projects, or projects that are giving their first steps.
-^ We save a lot of time with reusing components that others wrote before.
-
----
-
-## Only _1-2 platforms_<br><br>
-# 🖥 :iphone:
-
-^ It also works well if we don't have a lot of platforms, in that case we can easily share the source code by copying the source files to multiple targets.
+^ Pet projects
+^ Few source files
+^ Extensive use of external dependencies
 
 ---
 
 ## _Small_ teams
 ### __(and not distributed)__<br><br>
 
-^ The setup is perfect for small and not distributed teams. The small team works in a monolithic project and since it's not big the number of conflicts is very small.
+^ Less than 10 people.
+^ Working in a monolithic project.
+^ Working in the project is a pleasure.
+
+---
+
+## Only _1-2 platforms_<br><br>
+# 🖥 :iphone:
+
+^ Few years ago, few platforms
 
 ---
 
@@ -251,11 +226,16 @@ end
 ## _reuse code_
 ## _scale easily_
 
+^ Pain in the ass
+^ Copying files between targets didn't scale.
+
 ---
 
 ## Bigger projects
 ## _Bigger teams_
 ### __(and also distributed)__
+
+^ SoundCloud is distributed
 
 ---
 
@@ -265,7 +245,35 @@ end
 
 ---
 
-# ~~🤗~~  😰
+![fill](images/team_conflicts_1.png)
+
+---
+
+![fill](images/team_conflicts_2.png)
+
+---
+
+![fill](images/team_conflicts_3.png)
+
+---
+
+![fill](images/team_conflicts_4.png)
+
+---
+
+![fill](images/team_conflicts_5.png)
+
+---
+
+![fill](images/team_conflicts_6.png)
+
+---
+
+![fill](images/team_conflicts_7.png)
+
+---
+
+# 😰
 ![50%](images/xcode_icon.png)
 
 ---
@@ -286,8 +294,11 @@ end
 ---
 
 ### New platforms/targets
-## _Working only in_
-# _UI_
+# _Gluing_
+
+---
+
+![fill](images/frameworks_ui.png)
 
 ---
 
@@ -296,8 +307,7 @@ end
 
 ---
 
-## __Reuse__
-## Business Logic
+![fill](images/teams_frameworks.png)
 
 ---
 
@@ -313,13 +323,21 @@ end
 
 ---
 
-# ![inline, 170%](images/icon-framework.png) < API > ![inline, 170%](images/icon-framework.png)
+![fill](images/frameworks_api.png)
 
 ---
 
 ### Fewer _interdependencies_
 ### Fewer _conflicts_
-### Fewer _regressions_
+### Fewer _bugs_
+
+---
+
+![fill](images/shared_1.png)
+
+---
+
+![fill](images/shared_2.png)
 
 ---
 
@@ -380,8 +398,7 @@ LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks
 
 ---
 
-## _Recommendations_
-### _(And downsides)_
+## _Tips_
 ![image](images/dj.jpeg)
 
 ---
@@ -426,27 +443,52 @@ LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks
 
 ---
 
-## _Simplicity_
-### and clarity
-
----
-
 ## Define a public contract
 ### _and communication patterns_
 ^For example if it's objective-c, interfaces should be Objective-C compatible.
 
 ---
 
-## Versioning
-### _+ monorepository_
+# Internal
+## _by default_
+
+---
+
+## Monorepo
+### _Unified versioning_
 
 ^Keep all the frameworks in the same repository.
 ^Version only if there's another project reusing the framework.
 
 ---
 
+## _Downsides_
+
+![fill](images/water.jpeg)
+
+---
+
 ## _Documentation_
 ### Not good enough
+
+---
+
+## _No homogeneity_
+# APIs
+
+---
+
+# Macros
+
+```swift
+#if !os(macOS)
+  import AppKit
+  typealias Image = NSImage
+#else
+  import UIKit
+  typealias Image = UIImage
+#end
+```
 
 ---
 
@@ -459,7 +501,17 @@ LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks
 
 ---
 
-# Reference
+# _Conclussions_
+
+- Less conflicts in big teams.
+- Easy multiplatfom apps.
+- Aims good practices (API).
+
+## Do it if _only_ if your _project needs it_
+
+---
+
+# _References_
 
 - [frameworkoriented.io](frameworkoriented.io)
 - [Building Modern Frameworks](https://developer.apple.com/videos/play/wwdc2014/416/)
@@ -472,6 +524,7 @@ LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks
 
 # Thanks
 ## _Questions?_
+#### _@pepibumur / pepibumur@gmail.com_
 
 ![](images/krakow.jpeg)
 
