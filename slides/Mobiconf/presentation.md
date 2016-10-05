@@ -13,40 +13,68 @@
 
 ---
 
+# Framework Oriented Programming
+
+---
+
+## Context
+## _How_
+## Tips
+## _Downsides_
+
+---
+
 ![70%](images/box.png)
+
+^ I would like to start this talk with a very simple question.
+^ How many of you know what that thing is?
 
 ---
 
 # _Box_
+^ The answer is as simple as the question.
+^ It's a box
 
 ---
 
 ## _Things with something_
 ## in common
 
+^ We use boxes in our lives to collect/save things that have something in common.
+
 ---
 
 # 💌📷📔🗒
+
+^ Some examples of these things could be love letters, photos, diaries, notes.
 
 ---
 
 ![image](images/developer.jpeg)
 
+^ However we're developers, we don't work with these sort of things.
+^ You don't code love letters, or save photos in code.
+
 ---
 
 ![inline, 50%](images/h_file.png)![inline, 50%](images/m_file.png)![inline, 50%](images/swift_file.png)
 
+^ In a daily basis we work with source code.
+^ Headers, body files, Swift files.
+^ Any kind of file that represents business logic written in any language.
 
 ---
 
 ## ~~Boxes~~
 ## _Frameworks_
 
+^ Our boxes, where we save the source code and things that have something in common are Frameworks.
+
 ---
 
 ![inline, 60%](images/framework.png)
 
-In computer science, a library is a _collection_ of implementations of _behavior_, written in terms of a _language_, that has a _well-defined interface_ by which the behavior is invoked
+In computer science, a framework is a _collection_ of implementations of _behavior_, written in terms of a _language_, that has a _well-defined interface_ by which the behavior is invoked
 __Wikipedia__
 
 ---
@@ -54,26 +82,43 @@ __Wikipedia__
 # External
 # _Frameworks_
 
----
-
-## [CocoaPods](https://cocoapods.org)
-## [Carthage](https://github.com/carthage/carthage)
+^ We usually use them from external sources.
+^ We use tools, known as dependency managers that are responsible of resolving the dependencies tree and provide you with these framework that you can link from your app.
 
 ---
 
-## _Contributing 👍_
-### with the community
+![fill](images/external_frameworks.png)
+
+^ Rubygems and NPM are two examples of dependency managers for the Ruby and the Javascript community.
+^ If you're a Cocoa developer the most used dependency tools in the community are CocoaPods and Carthage.
 
 ---
 
 ## _Saving time 👍_
 ### with others code
 
+^ By using these external frameworks you save a lot of time coding.
+^ When networking APIs were complex on the iOS world libraries like AFNetworking helped a lot.
+^ As developers we're told to reuse code and optimize our time. Why writing something that has already been written by other developer in the community?
+
+---
+
+## _Contributing 👍_
+### with the community
+
+^ Creating external frameworks we contribute with the community.
+^ We invest time and resources in implementing a reusable piece of code and offer and maintain it for other developers teams that might be interested in using that component that you developed.
+
+
 ---
 
 ## _Maintainability_
 ## _costs 👎_
-### versioning and issues
+### features and issues
+
+^ Contributing with the community implies some costs.
+^ A library is something that you have to maintain. Issues might arise, or features might be requested.
+^ It's up to you to continue developing the library actively or encourage the community to do it.
 
 ---
 
@@ -105,11 +150,16 @@ target 'MyApp' do
 end
 ```
 
+^ This is an example of a Podfile where we specify all the external dependencies that we want to link our app against to.
+
 ---
 
 ### :apple:
-## _Project_
+## _1 Project_
+### +
 ## X External frameworks
+
+^ Most of projects nowadays are based on one target with multiple external dependencies.
 
 ---
 
@@ -117,29 +167,77 @@ end
 ## _projects_
 ![50%](images/xcode_icon.png)
 
+^ That setup works pretty well for simple projects, like pet projects, or projects that are giving their first steps.
+^ We save a lot of time with reusing components that others wrote before.
+
 ---
 
-## Only _1/2 platforms_<br><br>
+## Only _1-2 platforms_<br><br>
 # 🖥 :iphone:
+
+^ It also works well if we don't have a lot of platforms, in that case we can easily share the source code by copying the source files to multiple targets.
 
 ---
 
 ## _Small_ teams
 ### __(and not distributed)__<br><br>
 
----
-
-
-## However...
+^ The setup is perfect for small and not distributed teams. The small team works in a monolithic project and since it's not big the number of conflicts is very small.
 
 ---
 
-## :apple:
+# :apple:
+
+^ Big change in the market from Apple
+^ Introduced new members to the family.
 
 ---
 
 ## _New_ platforms <br><br>
 ## 🖥📱⌚️📺
+
+^ Currently 4 platforms
+^ More coming
+
+---
+
+![fill](images/share_sources_1.png)
+
+---
+
+![fill](images/share_sources_2.png)
+
+---
+
+![fill](images/share_sources_3.png)
+
+---
+
+![fill](images/share_sources_4.png)
+
+---
+
+![fill](images/extracting_1.png)
+
+---
+
+![fill](images/extracting_2.png)
+
+---
+
+![fill](images/extracting_3.png)
+
+---
+
+![fill](images/extracting_4.png)
+
+---
+
+![fill](images/extracting_5.png)
+
+---
+
+![fill](images/extracting_6.png)
 
 ---
 
@@ -203,11 +301,6 @@ end
 
 ---
 
-## __Select__
-## The features that we need
-
----
-
 ### Decide about _persistence_
 ### Decide about _patterns_
 ### Decide about _architecture_
@@ -224,9 +317,9 @@ end
 
 ---
 
-### Less _interdependencies_
-### Less _conflicts_
-### Less _regressions_
+### Fewer _interdependencies_
+### Fewer _conflicts_
+### Fewer _regressions_
 
 ---
 
