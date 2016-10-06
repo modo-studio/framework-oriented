@@ -6,6 +6,24 @@ title: {{ site.name }}
 ## :warning: Work in progress :warning:
 We're migrating the existing reference on the repository [pepibumur/framework-oriented-programming](https://github.com/pepibumur/framework-oriented-programming) to its own website. Stay tuned!.
 
+---
+
+> The concept of *Framework Oriented Programming* was thought as a reference for those that plan to modularize their cocoa apps. There's official documentation about frameworks/libraries but nothing that the best practices/principles when using them in apps. The reference includes principles, examples and tools that help you to understand better what the concept is and how to apply it in your own projects. Tools/examples/concepts are open to change. Feel free to propose changes, fixes, improvements directly to the [repositories](https://github.com/frameworkoriented). If you are trying it we'd like to also know about your approach and the steps that you took to get there. Do not hesitate to reach out to me at [pepibumur@gmail.com](pepibumur@gmail.com)
+
+# Context
+
+We've always been told as a developers to follow one basic design principle: try to make your code *reusable*. Design your classes, your business logic, your projects to be reusable. Project them to the future and imagine how these components could be used on different scenarios and contexts, don't couple your code to dependencies, prefer abstractions over concrections... There are bunch of principles and philosophies that can be applied to create reusable code from a low level perspective. However, from a higher level, we forget about these principles and we end up having projects tied to the platform and tied to our product use case. **What if we could design our apps in a way that could be easy to reuse and platform independent?**
+
+Nobody predicted a few years ago we were going to have so many platforms to develop for in Swift/Objective-C. Mobile platforms and iOS was the first step for a lot of developers that wanted to give a try to something new, playing with the new features and possibilities that mobile development offered. By that time, the focus was coding for iOS. We didn't think we were going to need part of all that code in future projects, and thus, I treated my projects like big boxes *(not black because we knew about the magic I was placing inside)* that implemented from UI tasks to interactions with the database. The big box was the **main app target**, that one that Xcode creates for you when you start a new project from the scratch. Later on, thanks to [CocoaPods](https://cocoapods.org) we easily connected our big box with other external small boxes, [AFNetworking](https://github.com/afnetworking/afnetworking), [MagicalRecord](),...
+
+We were taking advantage of reusable components that other developers where offering in open. That saved and saves us a lot of time in a daily bases. However our implemented components weren't reusable at all. Moreover they were coupled to other components and also with external dependencies. It wasn't a problem when we had only one app, but when Apple introduced new platforms we had a clear **need** to reuse these components to support these new platforms. It turned out to be a huge nightmare. Some teams decided to share files across targets, but if the design wasn't modular it wasn't easy at all. 
+
+Moreover monolithic projects are not ideal for big teams. As the team grows in a monolithic project the number of conflicts increase as well. Different teams touching the same file, which is easily solvable if it's a source file, and not as easy if it's a core data model or a storyboard. The problem becomes even worse if there're no integration tests between different components and a change in one of them causes an unexpected behaviour in the other.
+
+That **non-reusable** and **conflicts prone** architecture in the project led us to think about new architectures that could help us to solve these two main issues. The approach that we went with was modularizing the app using frameworks.
+
+We'll guide you through some principles, tooling and examples that might be useful if you plan to go with this setup for your projects.
+
 # Migration
 > The purpose of this section is explaining the best approach for transitioning from a existing monolithic project to a frameworks setup.
 
@@ -44,6 +62,8 @@ Special thanks to all the contributors listed below that have helped to make thi
 
 ## Talks
 
+- Framework Oriented Programming *(Mobiconf2016)*:
+  - [Slides](https://speakerdeck.com/pepibumur/framework-oriented-programming-mobiconf-2016)
 - A journey into frameworks and Swift:
   - [Slides](https://speakerdeck.com/pepibumur/a-journey-into-frameworks-and-swift)
 - Framework Oriented Programming *(NSBudapest)*:
