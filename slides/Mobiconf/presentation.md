@@ -3,7 +3,11 @@
 
 ---
 
-## Hi! :wave:
+![gif](images/pixar.gif)
+
+---
+
+## Cześć! :wave:
 # __Pedro__
 ![original left](images/me.jpg)
 ### iOS Developer at _SoundCloud_
@@ -402,6 +406,18 @@ end
 
 ---
 
+![fit](images/sc_frameworks_1.png)
+
+---
+
+![fit](images/sc_frameworks_2.png)
+
+---
+
+![fit](images/sc_frameworks_3.png)
+
+---
+
 ## Multi-Platform Framework
 
 ```bash
@@ -418,6 +434,10 @@ LD_RUNPATH_SEARCH_PATHS[sdk=macosx*] = $(inherited) @executable_path/../Framewor
 LD_RUNPATH_SEARCH_PATHS[sdk=watch*]   = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks @loader_path/Frameworks
 ```
+
+---
+
+![fill](images/multiplatform_1.png)
 
 ---
 
@@ -440,6 +460,14 @@ LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks
 
 ## _Analyze_
 ### Existing tools __(e.g. CocoaPods)__
+
+---
+
+![fit](images/cocoapods_1.png)
+
+---
+
+![fit](images/cocoapods_2.png)
 
 ---
 
@@ -526,7 +554,7 @@ LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks
 
 # _Conclussions_
 
-- Less conflicts in big teams.
+- Fewer conflicts in big teams.
 - Easy multiplatfom apps.
 - Aims good practices (API).
 
@@ -552,6 +580,6 @@ LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks
 ![](images/krakow.jpeg)
 
 ##### _Photos from_ [_Unsplash_](https://unsplash.com)
-#### _Slides_ [_bit.ly/framework-oriented_](http://bit.ly/framework-oriented)
+#### _Slides_ [_bit.ly/frameworkoriented_](http://bit.ly/frameworkoriented)
 
 ---
