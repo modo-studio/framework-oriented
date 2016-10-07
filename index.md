@@ -25,6 +25,9 @@ That **non-reusable** and **conflicts prone** architecture in the project led us
 We'll guide you through some principles, tooling and examples that might be useful if you plan to go with this setup for your projects.
 
 # Migration
+
+1. Start pulling the least dependent components from your app. These are usually tools/wrappers.
+
 > The purpose of this section is explaining the best approach for transitioning from a existing monolithic project to a frameworks setup.
 
 # Setups
