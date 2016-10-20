@@ -44,6 +44,27 @@ Just create a *FreelanceKit/StudioKit/MyNameKit* with the components that you us
 ## Feature teams setup
 Nothing in this section yet
 
+# Tools
+
+## [Pandora](https://github.com/frameworkoriented/pandora)
+![image](https://github.com/frameworkoriented/pandora/raw/master/assets/header.png)
+Once you start modularizing your apps you'll notice that you repeat the same steps every time you are about to create a new framework. Create the project, set the config, connect dependencies, add the example app... Hopefully we're developers and we can automate things! And that's what we did with Pandora. Pandora is a command line tool written in Ruby to automate Framework tasks.
+
+**Example: Creating a framework**
+{% highlight bash %}
+pandora create Search com.myorg
+{% endhighlight %}
+
+## Dependency managers
+
+> Useful for fetching external dependencies and integrate them into your frameworks-based projects.
+
+- [**CocoaPods:**](https://cocoapods.org) CocoaPods manages dependencies for your Xcode projects. You specify the dependencies for your project in a simple text file: your Podfile. CocoaPods recursively resolves dependencies between libraries, fetches source code for all dependencies, and creates and maintains an Xcode workspace to build your project.
+- [**Carthage:**](https://github.com/carthage/carthage) Carthage is intended to be the simplest way to add frameworks to your Cocoa application. Carthage builds your dependencies and provides you with binary frameworks, but you retain full control over your project structure and setup. Carthage does not automatically modify your project files or your build settings.
+- [**Swift Package Manager:**](https://swift.org/package-manager/) The Swift Package Manager is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
+
+
+
 # Contribute
 
 ## How to contribute?
@@ -60,6 +81,7 @@ Special thanks to all the contributors listed below that have helped to make thi
 - Juan Cazalla -  [@juancazalla](https://github.com/juancazalla)
 - Isaac Roldán - [@isaacroldan](https://github.com/isaacroldan)
 - Matej Balantič - [@MatejBalantic](https://github.com/MatejBalantic)
+- Raimon Lapuente - [@Wolffan](https://github.com/wolffan)
 
 # Resources
 
