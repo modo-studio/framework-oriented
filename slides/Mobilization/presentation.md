@@ -13,10 +13,6 @@
 
 ---
 
-# Framework Oriented Programming
-
----
-
 ## Context
 ## Motivation
 ## How
@@ -562,15 +558,6 @@ pandora create Core org.myorg
 
 ---
 
-# Features in frameworks?
-
-- *Ideal* for feature teams.
-- *Centralized* feature manager.
-- Features *registered* when the app is started.
-- Features ask the manager for other features.
-
----
-
 # Downsides
 
 ![fill](images/water.jpeg)
@@ -633,6 +620,7 @@ pandora create Core org.myorg
 
 # Thanks
 ## _Questions?_
+### #yatusabes 🍷
 #### _@pepibumur / pepibumur@gmail.com_
 
 ![](images/krakow.jpeg)
