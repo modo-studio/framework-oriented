@@ -3,10 +3,10 @@
 
 ---
 
-## Cześć! :wave:
+## Hi! :wave:
 # __Pedro__
 ![original left](images/me.jpg)
-### iOS Developer at _SoundCloud_
+### iOS Developer at SoundCloud
 ### _@pepibumur_
 ### _Twitter/GitHub_
 #### [www.ppinera.es](http://www.ppinera.es)
@@ -18,9 +18,10 @@
 ---
 
 ## Context
-## _How_
-## Tips
-## _Downsides_
+## Motivation
+## How
+## Questions
+## Downsides
 
 ---
 
@@ -141,7 +142,7 @@ end
 
 ---
 
-## _Small_ teams
+## Small teams
 ### __(and not distributed)__<br><br>
 
 ^ Less than 10 people.
@@ -150,7 +151,7 @@ end
 
 ---
 
-## Only _1-2 platforms_<br><br>
+## Only 1-2 platforms<br><br>
 # 🖥 :iphone:
 
 ^ Few years ago, few platforms
@@ -164,7 +165,7 @@ end
 
 ---
 
-## _New_ platforms <br><br>
+## New platforms <br><br>
 ## 🖥📱⌚️📺
 
 ^ Currently 4 platforms
@@ -212,15 +213,15 @@ end
 
 ---
 
-## _~~Simple~~_ complex
+## ~~Simple~~ complex
 ## _projects_
 ![50%](images/xcode_icon.png)
 
 ---
 
-## Couldn't
-## _reuse code_
-## _scale easily_
+### Couldn't
+## reuse code
+## scale easily
 
 ^ Pain in the ass
 ^ Copying files between targets didn't scale.
@@ -228,16 +229,16 @@ end
 ---
 
 ## Bigger projects
-## _Bigger teams_
-### __(and also distributed)__
+## Bigger teams
+#### __(and also distributed)__
 
 ^ SoundCloud is distributed
 
 ---
 
-# _Conflicts_
+# Conflicts
 ## Between teams
-### __(Interdependencies)__
+#### __(Interdependencies)__
 
 ---
 
@@ -278,14 +279,16 @@ end
 
 ---
 
-## _Framework Oriented Programming_
+## Framework
+## Oriented
+## Programming
 ![image](images/mountain.jpeg)
 
 ---
 
-## __Architectural Approach__<br>
+# Architectural Approach
 
-### Modularizing your apps code bases in *local* and _multiplatform_ frameworks that expose a _hookable_ interface.
+Modularizing your apps code bases in *local* and _multiplatform_ frameworks that expose a _hookable_ interface.
 
 ---
 
@@ -298,8 +301,8 @@ end
 
 ---
 
-# _Atomic teams_
-## that own frameworks
+# Atomic teams
+### that own frameworks
 
 ---
 
@@ -307,10 +310,10 @@ end
 
 ---
 
-### Decide about _persistence_
-### Decide about _patterns_
-### Decide about _architecture_
-### Decide about _language_
+### Decide about persistence
+### Decide about patterns
+### Decide about architecture
+### Decide about language
 
 ---
 
@@ -319,7 +322,7 @@ end
 ---
 
 ### Framework
-## Exposes an _API_
+## Exposes an API
 
 ---
 
@@ -327,9 +330,9 @@ end
 
 ---
 
-### Fewer _interdependencies_
-### Fewer _conflicts_
-### Fewer _bugs_
+### Fewer interdependencies
+### Fewer conflicts
+### Fewer bugs
 
 ---
 
@@ -341,17 +344,17 @@ end
 
 ---
 
-## _How to_
+# _How to_
 ### _Setup the project_
 
 ![image](images/coast.jpeg)
 
 ---
 
-## Using CocoaPods
+# Using CocoaPods
 
-#### _Create pods_
-#### _Link the project against them_
+### _Create pods_
+### _Link the project against them_
 
 ---
 
@@ -391,12 +394,12 @@ end
 
 ---
 
-## _Manually_
-### Creating/Linking
+# Manually
+### _Creating/Linking_
 
 ---
 
-## _Workspace_
+# Workspace
 ### Multiple framework projects
 #### Linked/Embedded
 
@@ -414,7 +417,7 @@ end
 
 ---
 
-## Multi-Platform Framework
+# Multi-Platform Framework
 
 ```bash
 # Supported platforms
@@ -433,41 +436,61 @@ LD_RUNPATH_SEARCH_PATHS[sdk=appletv*] = $(inherited) @executable_path/Frameworks
 
 ---
 
-## Pandora
-#### [github.com/frameworkoriented/pandora](https://github.com/frameworkoriented/pandora)
+![fit](images/multiplatform_1.png)
+
+---
+
+# Pandora
+### [github.com/frameworkoriented/pandora](https://github.com/frameworkoriented/pandora)
 
 ```bash
+gem install pandora-frameworks
 pandora create Core org.myorg
 ```
----
 
 ![inline](images/pandora_project.png)
 
 ---
 
-![fill](images/multiplatform_1.png)
-
----
-
-## _Tips_
+# _Questions_
+### _With answers_
 ![image](images/dj.jpeg)
 
 ---
 
-## _Minimize_
-### External dependencies
-#### __(Do it by yourself)__
+# External dependencies?
+
+- Minimize them (DIY)
+- Most dependent framework, fewer dependencies.
 
 ---
 
-### How frameworks are _linked_?
-### Should a framework be _embedded_?
-### Can I link it _statically_?
+# CocoaPods/Carthage?
+- Up to you
+- Both support local/external dependencies.
+- Depends on your setup.
 
 ---
 
-## _Analyze_
-### Existing tools __(e.g. CocoaPods)__
+# Static/Dyamic?
+- Linking:
+  - Static: *Compilation time.*
+  - Dynamic: *Startup time.*
+- Swift only supports dynamic.
+
+---
+
+# Linking/Embedding?
+
+- *Linking* "connects" dependencies.
+- *Embedding* "copies" them to the target (app)
+
+---
+
+# Analyze
+## Existing tools (e.g. CocoaPods)
+
+- Reverse engineering.
 
 ---
 
@@ -479,61 +502,88 @@ pandora create Core org.myorg
 
 ---
 
-## _Find the setup_
-### that works for you
+# Transitioning from Monolithic?
+
+- Start pulling tooling:
+  - API client.
+  - Database wrapper.
+  - Analytics.
+  - Logging
+- Continue gradually pulling features from the _least dependent_.
 
 ---
 
-## Freelance
+# How many frameworks?
+- It depends on your setup
+- Find the _stack_ that works for you.
+
+---
+
+# Freelance Setup
 
 ![inline](images/setup_freelance.png)
 
 ---
 
-## Feature Teams
+# Feature Teams Setup
 
 ![inline](images/setup_teams.png)
 
 ---
 
-## Multi-Platform apps
+# Multi-Platform Setup
 
 ![inline](images/setup_platforms.png)
 
 ---
 
-## Define a public contract
-### _and communication patterns_
-^For example if it's objective-c, interfaces should be Objective-C compatible.
+# One/Multiple repositories?
+
+- *One repository*
+- *Unless*:
+  - Other repository needs a framework.
+  - You make a framework open source.
 
 ---
 
-# Internal
-## _by default_
+# Versioning?
+
+- *Unified* versioning.
+- *Unless* different repositories.
+- *Very useful:* deprecation macros.
 
 ---
 
-## Monorepo
-### _Unified versioning_
-
-^Keep all the frameworks in the same repository.
-^Version only if there's another project reusing the framework.
+# Public/Internal/Private?
+- *Internal* by default.
+- *Public* API.
+- *Restrictive* over permissive.
+- *Enforce* good practices.
 
 ---
 
-## _Downsides_
+# Features in frameworks?
+
+- *Ideal* for feature teams.
+- *Centralized* feature manager.
+- Features *registered* when the app is started.
+- Features ask the manager for other features.
+
+---
+
+# Downsides
 
 ![fill](images/water.jpeg)
 
 ---
 
-## _Documentation_
-### Not good enough
+# Documentation
+### _Not good enough_
 
 ---
 
 ## _No homogeneity_
-# APIs
+# In APIs
 
 ---
 
@@ -551,8 +601,8 @@ pandora create Core org.myorg
 
 ---
 
-# _Xcode_
-## Has a long way to go
+# Xcode
+#### Has a long way to go
 ### 🙏 :apple:
 
 ^ Error forwarding
@@ -560,17 +610,17 @@ pandora create Core org.myorg
 
 ---
 
-# _Conclussions_
+# Conclussions
 
 - Fewer conflicts in big teams.
 - Easy multiplatfom apps.
 - Aims good practices (API).
 
-## Do it if _only_ if your _project needs it_
+## Do it if only if your project needs it
 
 ---
 
-# _References_
+# References
 
 - [frameworkoriented.io](frameworkoriented.io)
 - [Building Modern Frameworks](https://developer.apple.com/videos/play/wwdc2014/416/)
