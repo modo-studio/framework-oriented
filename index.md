@@ -9,8 +9,11 @@ title: {{ site.name }}
 |   |  Index |
 |---|---|
 | :mag: |  [**Context**](#context)|
+| :stuck_out_tongue: |  [**Motivation**](#motivation)|
+| :one: |  [**Principles**](#principles)|
 | :camel: |  [**Migration**](#migration) |
 | :loop: |  [**Setups**](#setups) |
+| :dart: | [**MicroFeatures**](#microfeatures) |
 | :scissors: |  [**Tools**](#tools) |
 | :couple: |  [**Contribute**](#contribute) |
 | :book: |  [**Resources**](#resources) |
@@ -31,20 +34,119 @@ That **non-reusable** and **conflicts prone** architecture in the project led us
 
 We'll guide you through some principles, tooling and examples that might be useful if you plan to go with this setup for your projects.
 
---- 
+# Motivation
 
-## :warning: Work in progress :warning:
-We're migrating the existing reference on the repository [pepibumur/framework-oriented-programming](https://github.com/pepibumur/framework-oriented-programming) to its own website. Stay tuned!.
+- **Easily expand to new platforms:** Creating a new version of your project for another platforms should be as easy as working on the UI layer, reusing all the business logic that comes already implemented in your frameworks.
+- **New products with similar core needs:** This is very sweet for startups, since it allows product related iterations. Companies can benefit from this  adding new products to the stack that share the same core logic as other products *(e.g. the new product interacts with the same API, the data model is the same...)*
+- **Aim open sourcing:** Have you ever wanted to open source a component in your project and it was hard because it was designed to be used in your product? What if it was designed in the other way around without thinking about where the component would be used? Designing without thinking in the use case leads to more generic implementation that might be handy for other developers and so, open-sourceable from your side.
+- **Plug in an out pieces with ease:** Having the business logic separated in small pieces helps when the project needs a replacement for any of these pieces. As the code is very isolated and the public interface abstracted these pieces could be easily replaced just exposing the same interface but replacing the private implementation.
 
----
+# Principles
+
+## 1. Single responsibility
+
+SOLID principles also apply to a framework. Frameworks should satisfy the single responsibility principle. They should have only one responsibility. If any of your designed frameworks has multiple responsibility, think about slicing it in more layers.
+
+> For example, if we have an API interaction layer, and it offers not only the wrapper to the Foundation Networking layer but the requests  factories and models *(tied to your project use case)* think about separating them into a `Networking` and an `API` frameworks.
+
+Frameworks that had one responsibility at the beginning might get more later. 
+
+Defining the responsibility of a framework is not easy. Think about a Framework as a box, that you give data to, it **does something** with your data, and provides you with some results. *"Does something"* is your framework's purpose. Keep that purpose simple and scoped.
+
+> Build single purpose boxes
+
+
+## 2. Vertical design
+
+Design your frameworks graph as a stack with multiple layers where the application is on the top. Avoid horizontal dependencies between frameworks in the same layer and prefer vertical dependencies down in the stack. 
+
+If any framework needed to know about other in the same level, you might need a layer that combines them on top. A very simple example would be the data synchronization in your app. We might have a framework for an HTTP interaction with your API, another one for persisting the data and think about getting to know each other to persist the responses from one using the other one. You're unconsciously coupling these two frameworks horizontally. Let's come up with a new framework on top of these responsible of that *synchronization* between local and remote.
+
+> Design your stack dependencies vertically
+
+## 3. External dependencies
+The number of external dependencies should be directly proportional with the level of the framework in the stack *(i.e, the lower in the stack the less the external dependencies it should have)*. Dependencies of lower levels are also dependencies of upper levels, thus, the more dependencies we we have in these levels the more complex the graph and the setup becomes. Figure out if your Framework really needs that external dependency that you are thinking about. Most of the times we end up checking out dependencies to use only a few components from them. Add as a dependencies only these `components/extensions/classes` that you really need.
+
+> Reduce external dependencies as you go lower in the stack.
+
+## 4. One step dependencies
+##### :warning: Work in progress :warning:
+
+Frameworks should know only about the framework below *(one step)*. Deeper dependencies should be wrapped by the framework you are depending on *(either these deeper dependencies are local or external)*. Never expose them up, proxy the protocols, and wrap the models from the framework.
+
+This makes replacement in the future easier. For example if you used another persistency solution like [Realm](https://realm.io) that uses their own defined models and you exposed them from your Framework
+
+> Don't expose lower dependencies to upper levels. Wrap them!
+
+## 5. Restrictive first
+##### :warning: Work in progress :warning:
+If you're using **Swift**, congrats :tada:, you get this for free. All components are by default `internal` and they won't be visible form other frameworks unless you specify it with the `public` modifier. As soon as you start *"consuming"* your frameworks you'll figure out which components have to be `public`. In case of **Objective-C** keep the headers private in the target headers configuration and make `public` only these that must be visible. When a component is `public` the developers that are depending on that frameworks feel the *"freedom"* and *"flexibility"* that leads to a misuse and coupling with private code.
+
+> Make framework components internal by default and make public only these needed.
+
+## 6. Final
+##### :warning: Work in progress :warning:
+
+Design your Frameworks components based on the open/closed SOLID principle. Allow extension *(open)* but without diving into the base class implementation *(closed)*. Modifying the base class might lead to unexpected behavior cascading through all the components that rely on the modified one *(it could be detected with a good testing suite)*. Swift allows restricting the modification of a class/method with the **final** keyword. You'll find more information about Swift inheritance and restricting overriding [here](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/Swift_Programming_Language/Inheritance.html).
+
+With the final keyword you prevent overrides from your Frameworks and force the developers to look for extension alternatives other than overriding.
+
+> Make your Frameworks open to extension but closed to modifications.
+
+
+## 7. Framework models
+##### :warning: Work in progress :warning:
+
+Each framework should implement their own models. If you share models between multiple frameworks you are coupling these frameworks to the frameworks that provide these models. That said, a `Networking` framework should have defined models representing API responses, and a `Database` framework should have their own `Database` models. If these models are combined in a business logic framework, `Core` then they should be wrapped into different models. You
+
+> Each framework defines its own models
+
+## 8. Platform abstraction
+##### :warning: Work in progress :warning:
+
+Decouple your framework from platform specific frameworks. What does it mean? If there's a Framework that is `macOS` or `iOS` only, for example `UIKit` or `AppKit`, try not to couple your framework to it. Instead come up with these components that you might need, a `Color` or a `Font`  class/struct. You can create extensions and platform macros to convert these frameworks components into components that are easier to work with from the application.
+
+- Swift Preprocessor Directives: [Link](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/InteractingWithCAPIs.html#//apple_ref/doc/uid/TP40014216-CH8-XID_20)
+- Target conditionals and availability: [Link](https://www.cocoanetics.com/2012/09/target-conditionals-and-availability/)
+
+> Decoupled from platforms, extended to make it nicer to play with for platforms.
+
+```swift
+#if os(OSX)
+// OSX only code
+#endif
+```
+
+## 9. Protocol oriented interfaces
+##### :warning: Work in progress :warning:
+
+**Based on the 5th SOLID principle: Dependency Inversion**
+
+Abstract your public interfaces with protocols. That decouples the access layer from the implementation. If a framework `A` depends on the protocol based interface of `B`, `B` can update its implementation without requiring any change in `A` *(since the exposed interface is the same)*. This principle is aligned with the Swift philosophy based on protocols, and that is well known as *Protocol Oriented Programming*. The same programming paradigm that applies to this principle. Your frameworks are responsible of certain tasks and you define them in a protocol based interface.
+
+> Define your Frameworks interfaces using protocols
+
+## 10. Core
+##### :warning: Work in progress :warning:
+
+Most of projects share code that is used by all the components around the app. These components are part of your application Foundation. As Apple does with Foundation that provides with the base structures that are needed for building any application, your Core will contain the base structures to build your application/s. Sort of elements that could be part of your Foundation framework are:
+
+- Logging helpers.
+- Extensions of existing Foundation classes *(e.g. extra instance methods added to Array/Collection implementing a behavior that is not natively provided)*
+- Architectural components *(e.g. if we go with the command pattern, we can define a base command class in Foundation)*
+
+To know if a component should be part of Core try to answer the following question: *Is that component going to be used by all the Frameworks in the stack or is it only needed by one of them?*
+
 
 # Migration
+##### :warning: Work in progress :warning:
 
 1. Start pulling the least dependent components from your app. These are usually tools/wrappers.
 
 > The purpose of this section is explaining the best approach for transitioning from a existing monolithic project to a frameworks setup.
 
 # Setups
+##### :warning: Work in progress :warning:
 Would you like to know which setup is best according to your project/team structure? Start by answering the following questions:
 
 ## Freelance setup
@@ -57,6 +159,9 @@ Just create a *FreelanceKit/StudioKit/MyNameKit* with the components that you us
 
 ## Feature teams setup
 Nothing in this section yet
+
+# MicroFeatures
+##### :warning: Work in progress :warning:
 
 # Tools
 
