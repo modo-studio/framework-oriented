@@ -3,12 +3,19 @@ layout: default
 title: {{ site.name }}
 ---
 
-## :warning: Work in progress :warning:
-We're migrating the existing reference on the repository [pepibumur/framework-oriented-programming](https://github.com/pepibumur/framework-oriented-programming) to its own website. Stay tuned!.
-
----
-
 > The concept of *Framework Oriented Programming* was thought as a reference for those that plan to modularize their cocoa apps. There's official documentation about frameworks/libraries but nothing that the best practices/principles when using them in apps. The reference includes principles, examples and tools that help you to understand better what the concept is and how to apply it in your own projects. Tools/examples/concepts are open to change. Feel free to propose changes, fixes, improvements directly to the [repositories](https://github.com/frameworkoriented). If you are trying it we'd like to also know about your approach and the steps that you took to get there. Do not hesitate to reach out to me at [pepibumur@gmail.com](pepibumur@gmail.com)
+
+
+|   |  Index |
+|---|---|
+| :mag: |  [**Context**](#context)|
+| :camel: |  [**Migration**](#migration) |
+| :loop: |  [**Setups**](#setups) |
+| :scissors: |  [**Tools**](#tools) |
+| :couple: |  [**Contribute**](#contribute) |
+| :book: |  [**Resources**](#resources) |
+| :pencil: |  [**Resources**](#references) |
+
 
 # Context
 
@@ -23,6 +30,13 @@ Moreover monolithic projects are not ideal for big teams. As the team grows in a
 That **non-reusable** and **conflicts prone** architecture in the project led us to think about new architectures that could help us to solve these two main issues. The approach that we went with was modularizing the app using frameworks.
 
 We'll guide you through some principles, tooling and examples that might be useful if you plan to go with this setup for your projects.
+
+--- 
+
+## :warning: Work in progress :warning:
+We're migrating the existing reference on the repository [pepibumur/framework-oriented-programming](https://github.com/pepibumur/framework-oriented-programming) to its own website. Stay tuned!.
+
+---
 
 # Migration
 
