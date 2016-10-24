@@ -626,6 +626,6 @@ pandora create Core org.myorg
 ![](images/krakow.jpeg)
 
 ##### _Photos from_ [_Unsplash_](https://unsplash.com)
-#### _Slides_ [_bit.ly/frameworkoriented_](http://bit.ly/frameworkorientedprogramming)
+#### _Slides_ [_bit.ly/frameworkorientedprogramming_](http://bit.ly/frameworkorientedprogramming)
 
 ---
