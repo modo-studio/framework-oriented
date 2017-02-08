@@ -9,22 +9,9 @@ The repository is a reference to Framework Oriented Programming for :apple: plat
 
 ## How to run the website locally
 
-1. Git clone theh repository with `git clone https://github.com/carambalabs/framework-oriented.git`
+1. Git clone theh repository with `git clone https://gitlab.com/caramba/framework-oriented.git`
 2. Install gem dependencies with `bundle install`
 3. Run the server with `bundle exec jekyll serve`
-
-## About
-
-<img src="https://github.com/carambalabs/Foundation/blob/master/ASSETS/avatar_rounded.png?raw=true" width="70" />
-
-This project is funded and maintained by [Caramba](http://caramba.io). We 💛 open source software!
-
-Check out our other [open source projects](https://github.com/carambalabs/), read our [blog](http://blog.caramba.io) or say :wave: on twitter [@carambalabs](http://twitter.com/carambalabs).
-
-## Contribute
-
-Contributions are welcome :metal: We encourage developers like you to help us improve the projects we've shared with the community. Please see the [Contributing Guide](https://github.com/carambalabs/Foundation/blob/master/CONTRIBUTING.md) and the [Code of Conduct](https://github.com/carambalabs/Foundation/blob/master/CONDUCT.md).
-
 
 # License
 
