@@ -1,6 +1,5 @@
 title:        Framework Oriented Programming
 tagline:      A reference for Framework Oriented Programming for iOS/tvOS/macOS/watchOS
-baseurl:      ""
 paginate:     1
 author:
   name:       Caramba
@@ -9,6 +8,4 @@ gems:
   - jekyll-paginate
   - jemoji
 markdown: kramdown
-
-github_repository: "https://github.com/carambalabs/framework-oriented"
-project_zip: "https://github.com/carambalabs/framework-oriented/archive/master.zip"
+github_repository: "https://gitlab.com/caramba/framework-oriented"
