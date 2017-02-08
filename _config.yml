@@ -4,6 +4,8 @@ paginate:     1
 author:
   name:       Caramba
   # url:        http://carambalabs.github.io
+# baseurl: "/" # the subpath of your site, e.g. /blog
+url: "/" # the base hostname & protocol for your site
 gems:
   - jekyll-paginate
   - jemoji
