@@ -165,13 +165,21 @@ Nothing in this section yet
 
 # Tools
 
-## [Pandora](https://github.com/frameworkoriented/pandora)
-![image](https://github.com/frameworkoriented/pandora/raw/master/assets/header.png)
+## Framework generation
+### [Pandora](https://github.com/frameworkoriented/pandora)
 Once you start modularizing your apps you'll notice that you repeat the same steps every time you are about to create a new framework. Create the project, set the config, connect dependencies, add the example app... Hopefully we're developers and we can automate things! And that's what we did with Pandora. Pandora is a command line tool written in Ruby to automate Framework tasks.
 
 **Example: Creating a framework**
 {% highlight bash %}
 pandora create Search com.myorg
+{% endhighlight %}
+
+### [SwiftPlate](https://github.com/JohnSundell/SwiftPlate)
+Similarly, SwiftPlate generates cross platform Swift framework projects from the command line. Projects will support CocoaPods, Carthage, Swift Package Manager, iOS/macOS/watchOS/tvOS/Linux.
+
+**Example: Creating a framework**
+{% highlight bash %}
+swiftplate
 {% endhighlight %}
 
 ## Dependency managers
@@ -187,9 +195,17 @@ pandora create Search com.myorg
 
 ## How to contribute?
 
-Feel free to improve the reference. Check out the repository, follow the setup steps and make your proposals. Create a PR with your proposal and we'll discuss the proposal before merging it. Make sure that CI is passing and the website/projects compile accordingly.
+- You can contribute to the project [opening an issue](https://gitlab.com/caramba/framework-oriented/issues/new) on the repository. You can propose improvements, report mistakes, or just open a discussion.
+- You can also [fork the repository](https://gitlab.com/caramba/framework-oriented/forks/new) and apply the changes directly. You can propose a merge request afterwards that will be reviewed before getting merged.
 
-**We're looking forward to your improvements!**
+## How to setup the project
+
+1. Git clone theh repository with `git clone https://gitlab.com/caramba/framework-oriented.git`
+2. Install gem dependencies with `bundle install`
+3. Run the server with `bundle exec jekyll serve`
+4. Open [http://127.0.0.1:4000](http://127.0.0.1:4000)
+
+We're looking forward to your improvements!
 
 ## Thanks
 
@@ -214,12 +230,6 @@ Special thanks to all the contributors listed below that have helped to make thi
 - Framework Oriented Programming:
   - [Slides](https://speakerdeck.com/pepibumur/framework-oriented-programming)
   - [Video (Spanish)](https://www.youtube.com/watch?v=UFuDpcB4yTc)
-
-## Workshops
-
-- Modularizing your apps:
-  - [Slides](https://speakerdeck.com/pepibumur/modularizing-your-apps)
-  - [Repository](https://github.com/soundcloud/weatherito)
 
 ## Articles
 
