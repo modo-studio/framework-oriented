@@ -1,10 +1,9 @@
 title:        Framework Oriented Programming
-tagline:      A reference for Framework Oriented Programming for iOS/tvOS/macOS/watchOS
+tagline:      A reference to build modularized apps for iOS/tvOS/macOS/watchOS
 paginate:     1
 author:
-  name:       Caramba
-  # url:        http://carambalabs.github.io
-# baseurl: "/" # the subpath of your site, e.g. /blog
+  name:       "@pepibumur"
+  url:        "https://twitter.com/pepibumur"
 url: "/" # the base hostname & protocol for your site
 gems:
   - jekyll-paginate
