@@ -5,24 +5,24 @@ title: {{ site.name }}
 
 # Context
 
-Traditionally applications have been single-target. When projects evolve and the target and the team grow, working with a monolith project becomes very hard:
+Traditionally applications have been single-target. When projects evolve, and the target and the team grow, working with a monolith project becomes very hard:
 
 - The targets take too much time to compile.
-- Code is hard to reuse across platforms.
-- Strong intra and inter dependencies.
+- The is hard to reuse across platforms.
+- There are many strong intra and inter dependencies.
 
-Inspired by Micro Services in backend, the **Framework Oriented Programming** project architecture pretends to reduce these issues by splitting the big application module, into smaller and atomic chunks.
+Inspired by microsvervices, the **Framework Oriented Programming** project architecture pretends to reduce these issues by splitting the large application module, into smaller and atomic chunks.
 
-In the next section we'll dive into the definition of the architecture and how diferent code components would fit into all the modules of our projects.
+In the next sections, we'll dive into the definition of the architecture and how different code components would fit into all the modules of our projects.
 
 > The core idea of framework oriented programming is not something we've invented. You can find a lot of literature about scaling projects by splitting up your project in different services. Our aim is to apply all these principles, that help projects scale easily in other platforms, to scale our Xcode apps.
 
 ### Why modularizing my apps?
-- Workflow cycles are much faster. You work on your own module and once finished, it's hooked in the app.
+- Workflow cycles are much faster. You work on your module and once finished, it's hooked in the app.
 - Boundaries will encourage good practices using APIs frameworks expose.
 - If you have Swift and Objective-C in your project, frameworks will be the perfect place to start coding pure Swift in the project.
 - Higher atomicity of features and teams and fewer dependencies.
-- Features become more reusable, not only in platform you are building apps for, but in other platforms.
+- Your features become more reusable across products/platforms.
 
 # Index
 
@@ -37,13 +37,13 @@ In the next section we'll dive into the definition of the architecture and how d
 
 # Principles
 
-- Your application is built by combining different modules. These modules can be dynamic frameworks *(if you are using Swift)*, or static libaries.
-- Modules have an interfaces that expose to the consumers *(apps & modules)*. The interface is the entry point to the framework and everything exposed by the interface shold be public. If something is not exposed by the API it should remain private.
-- Modules can be platform specific, if you plan to support only one platform, or they can be cross-platform. You can achieve using the build settings attribute `SUPPORTED_PLATFORMS`.
+- Your application is built by combining different modules. These modules can be dynamic frameworks *(if you are using Swift)*, or static libraries.
+- Modules have interfaces that expose to the consumers *(apps & modules)*. The interface is the entry point to the framework, and everything exposed by the interface should be public. If the API does not expose something it should remain private.
+- Modules can be platform specific if you plan to support only one platform, or they can be cross-platform. You can achieve using the build settings attribute `SUPPORTED_PLATFORMS`.
 - Sharing a base configuration is recommended since it'll ensure consistency in the frameworks settings. [Here](https://gist.github.com/pepibumur/763a28879a976ff3083161dd788e7efa) you can find an example of a cross-platform framework configuration.
-- Targets that build the modules can be in the same project or in different projects. The benefit of having different projects in the same workspace is that the chances to suffer conflicts when modifying the same project file from different branches decrease.
-- Although you can setup the stack manually, you can use tools like [CocoaPods](https://cocoapods.org) where your modules are defined with `.podspec`. CocoaPods makes easier depending on external dependencies.
-- Ahtough it's possible to integrate external dependencies into the stack it's discouraged. External dependencies come with unnecessary maintainability costs. Before bringing an external dependency, think about the value it brings to your application core.
+- Targets that build the modules can be in the same project or different projects. The benefit of having different projects in the same workspace is that the chances to suffer conflicts when modifying the same project file from different branches decrease.
+- Although you can set up the stack manually, you can use tools like [CocoaPods](https://cocoapods.org) where your modules are defined with `.podspec`. CocoaPods makes easier depending on external dependencies.
+- Even though it's possible to integrate external dependencies into the stack it's discouraged. External dependencies come with unnecessary maintainability costs. Before bringing an external dependency, think about the value it brings to your application core.
 - Module projects can come with an example app and a Playground. Playgrounds are very handy to document the usage of the APIs or onboard people into the module.
 
 <br>
@@ -53,7 +53,7 @@ In the next section we'll dive into the definition of the architecture and how d
 
 ![Core Framework](/assets/images/core.png)
 
-Core is the framework at the bottom of the stack. It's the responsible for providing the frameworks in upper levels with tools that they need to build their features. A few examples of these tools coulud be:
+Core is the framework at the bottom of the stack. It's the responsible for providing the frameworks in upper levels with tools that they need to build their features. A few examples of these tools could be:
 
 - A client to interact with your product API.
 - A store for persisting and retrieving data from the disk or a database.
@@ -62,7 +62,7 @@ Core is the framework at the bottom of the stack. It's the responsible for provi
 
 Notice that some of these tools will be a shared instance with a configuration that depends on the app. For example, your client will point to an URL that depends on the configuration that you are building. Similarly, the log level will be different in your `Release` build compared to your `Debug` build.
 
-One possible way to get it done is having a shared configuration that every new instance of the client will take by default: 
+One possible way to get it done has a shared configuration that every new instance of the client will take by default: 
 
 {% highlight swift %}
 class Client {
@@ -93,7 +93,7 @@ class Feature {
 
 ![](/assets/images/features.png)
 
-`Features` framework allows dependency inversion with features. Feature A and B don't know about each other, but they know about their interfaces because they've been defined in the Features framework. Without the dependency inversion in place, accessing B from A, creates an implicit dependency between these two frameworks. With such dependency you can't use A without importing B in a different application.
+`Features` framework allows dependency inversion with features. Feature A and B don't know about each other, but they know about their interfaces because they've been defined in the Features framework. Without the dependency inversion in place, accessing B from A, creates an implicit dependency between these two frameworks. With such dependency, you can't use A without importing B in a different application.
 
 All the models that these interfaces *(or protocols)* expose should be part of `Features` as well.
 
@@ -101,15 +101,15 @@ All the models that these interfaces *(or protocols)* expose should be part of `
 
 ![Testing framework](/assets/images/testing.png)
 
-Most times you'll find yourself writing helpers or testing expectations that other teams might need as well. By extracting all of them in a framework you make them reusable across all the feature frameworks.
+Most times you'll find yourself writing helpers or testing expectations that other teams might need as well. By extracting all of them in a framework, you make them reusable across all the feature frameworks.
 
 ## UI
 
 ![UI framework](/assets/images/ui.png)
 
-For consistency in your applications designs, there are certain UI elements that are shared across the feautures; elements such as fonts, colors, or custom views. It's also a good place for `UIKit` and `AppKit` extensions that you come up with.
+For consistency in your applications designs, there are certain UI elements that are shared across the features, elements like fonts, colors, or custom views. It's also a good place for `UIKit` and `AppKit` extensions that you come up with.
 
-These elements can be placed in a UI framework that the feature frameworks depend on.
+These elements can be placed in an UI framework that the feature frameworks depend on.
 
 ## Feature
 
@@ -154,7 +154,7 @@ As mentioned earlier, the app will set up `Core` tools at startup time and notif
 
 ### Manual
 
-Although all the targets for the frameworks can be in the same projects, keeping them in different project will make them completely independent from the others:
+Although all the targets for the frameworks can be on the same projects, keeping them in diferent project will make them completely independent from the others:
 
 - For each framework you'll need a project that includes the source and unit tests target. Optionally, these projects can also include a playground to onboard people or document the interface of the framework.
 {% highlight bash %}
@@ -170,12 +170,12 @@ Frameworks/
 {% endhighlight %}
 - Add all these projects to the workspace where the application is *(if it's not in a workspace, create one)*.
 - Define the linking between the frameworks. Be careful here because when Xcode will most likely use absolute routes for the links. Make sure that the `.framework` paths are relative to the build products folder.
-- Add an copy frameworks build phase in:
+- Add a copy frameworks build phase in:
   - The projects tests targets.
   - The applications targets.
 - Optionally you can define schemes for building and testing each of the frameworks individually, or create one that groups all of them.
 
-> If you are building cross-platform frameworks it's very easy to break the support for the platforms you're not building for in your workflow. To prevent this you can define a continous integration step in your pipeline, that build the frameworks for all the platforms that they are supposed to support. 
+> If you are building cross-platform frameworks it's very easy to break the support for the platforms you're not building for in your workflow. To prevent this, you can define a continuous integration step in your pipeline, that build the frameworks for all the platforms that they are supposed to support. 
 
 ### CocoaPods
 
@@ -186,7 +186,7 @@ If you prefer to use [CocoaPods](https://cocoapods.org) to create the stack it's
 3. Add all the dependencies to the `Podfile`, being the first one `Core` and the last one the `Features`.
 4. Execute `pod install`. It'll update the workspace to include these dependencies. Notice that CocoaPods will create schemes for building these dependencies individually.
 
-> With CocoaPods it's easier to bring external dependencies, otherwise you'd need to appeal to Carthage, Git Submodules or Swift Package Manager.
+> With CocoaPods it's easier to bring external dependencies. Otherwise, you'd need to appeal to Carthage, Git Submodules or Swift Package Manager.
 
 # Tools
 
@@ -214,7 +214,7 @@ swiftplate
 
 > Useful for fetching external dependencies and integrate them into your frameworks-based projects.
 
-- [**CocoaPods:**](https://cocoapods.org) CocoaPods manages dependencies for your Xcode projects. You specify the dependencies for your project in a simple text file: your Podfile. CocoaPods recursively resolves dependencies between libraries, fetches source code for all dependencies, and creates and maintains an Xcode workspace to build your project.
+- [**CocoaPods:**](https://cocoapods.org) CocoaPods manages dependencies for your Xcode projects. You specify the dependencies for your project in a simple text file: your Podfile. CocoaPods recursively resolves dependencies between libraries, fetches source code for all dependencies, and creates and maintains a Xcode workspace to build your project.
 - [**Carthage:**](https://github.com/carthage/carthage) Carthage is intended to be the simplest way to add frameworks to your Cocoa application. Carthage builds your dependencies and provides you with binary frameworks, but you retain full control over your project structure and setup. Carthage does not automatically modify your project files or your build settings.
 - [**Swift Package Manager:**](https://swift.org/package-manager/) The Swift Package Manager is a tool for managing the distribution of Swift code. It’s integrated with the Swift build system to automate the process of downloading, compiling, and linking dependencies.
 - [**CocoaSeeds:**](https://github.com/devxoul/CocoaSeeds) Git Submodule Alternative for Cocoa. Inspired by CocoaPods.
@@ -236,7 +236,7 @@ swiftplate
 We're looking forward to your improvements!
 
 # Share
-If your project were alerady using a similar modularized setup, or you moved towards this direction, you can share your experience in this section. Open a merge request and do not hesitate to share it!
+If your project were already using a similar modularized setup, or you moved towards this direction, you can share your experience in this section. Open a merge request and do not hesitate to share it!
 
 # Thanks
 
