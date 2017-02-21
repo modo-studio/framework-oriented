@@ -277,3 +277,4 @@ Special thanks to all the contributors listed below that have helped to make thi
 - **Static and Dynamic Libraries** - [Link](https://pewpewthespells.com/blog/static_and_dynamic_libraries.html)
 - **The Unofficial Guide to xccconfig files** - [Link](https://pewpewthespells.com/blog/xcconfig_guide.html)
 - **Microservices** - [Link](https://martinfowler.com/articles/microservices.html)
+- **Framework Oriented Programming and It's Relation to OOP** - [Link](https://christiantietze.de/posts/2017/01/oop-framework-oriented-programming/)
