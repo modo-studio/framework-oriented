@@ -5,21 +5,48 @@ title: {{ site.name }}
 
 # Context
 
-Traditionally applications have been single-target. When projects evolve and the target and the team grows, working with it becomes very hard:
+Traditionally applications have been single-target. When projects evolve and the target and the team grow, working with a monolith project becomes very hard:
 
 - The targets take too much time to compile.
 - Code is hard to reuse across platforms.
 - Strong intra and inter dependencies.
 
-Inspired by Micro Services in backend, the **Framework Oriented Programming** approach pretends to reduce these issues by splitting the big application module, into smaller and atomic chunks.
+Inspired by Micro Services in backend, the **Framework Oriented Programming** project architecture pretends to reduce these issues by splitting the big application module, into smaller and atomic chunks.
 
+In the next section we'll dive into the definition of the architecture and how diferent code components would fit into all the modules of our projects.
 
-<!--- Playgrounds (onboarding APIs)
-- Defined boundaries.-->
+> The core idea of framework oriented programming is not something we've invented. You can find a lot of literature about scaling projects by splitting up your project in different services. Our aim is to apply all these principles, that help projects scale easily in other platforms, to scale our Xcode apps.
 
-# Specification
-// TODO
+### Why modularizing my apps?
+- Workflow cycles are much faster. You work on your own module and once finished, it's hooked in the app.
+- Boundaries will encourage good practices using APIs frameworks expose.
+- If you have Swift and Objective-C in your project, frameworks will be the perfect place to start coding pure Swift in the project.
+- Higher atomicity of features and teams and fewer dependencies.
+- Features become more reusable, not only in platform you are building apps for, but in other platforms.
 
+# Index
+
+- [Principles](#principles)
+- [Setup](#setup)
+- [Tools](#tools)
+- [Contribute](#contribute)
+- [Share](#share)
+- [Thanks](#thanks)
+- [Resources](#resources)
+- [Further Reading](#further-reading)
+
+# Principles
+
+- Your application is built by combining different modules. These modules can be dynamic frameworks *(if you are using Swift)*, or static libaries.
+- Modules have an interfaces that expose to the consumers *(apps & modules)*. The interface is the entry point to the framework and everything exposed by the interface shold be public. If something is not exposed by the API it should remain private.
+- Modules can be platform specific, if you plan to support only one platform, or they can be cross-platform. You can achieve using the build settings attribute `SUPPORTED_PLATFORMS`.
+- Sharing a base configuration is recommended since it'll ensure consistency in the frameworks settings. [Here](https://gist.github.com/pepibumur/763a28879a976ff3083161dd788e7efa) you can find an example of a cross-platform framework configuration.
+- Targets that build the modules can be in the same project or in different projects. The benefit of having different projects in the same workspace is that the chances to suffer conflicts when modifying the same project file from different branches decrease.
+- Although you can setup the stack manually, you can use tools like [CocoaPods](https://cocoapods.org) where your modules are defined with `.podspec`. CocoaPods makes easier depending on external dependencies.
+- Ahtough it's possible to integrate external dependencies into the stack it's discouraged. External dependencies come with unnecessary maintainability costs. Before bringing an external dependency, think about the value it brings to your application core.
+- Module projects can come with an example app and a Playground. Playgrounds are very handy to document the usage of the APIs or onboard people into the module.
+
+<br>
 ![](/assets/images/stack.png)
 
 ## Core 
@@ -75,6 +102,14 @@ All the models that these interfaces *(or protocols)* expose should be part of `
 ![Testing framework](/assets/images/testing.png)
 
 Most times you'll find yourself writing helpers or testing expectations that other teams might need as well. By extracting all of them in a framework you make them reusable across all the feature frameworks.
+
+## UI
+
+![UI framework](/assets/images/ui.png)
+
+For consistency in your applications designs, there are certain UI elements that are shared across the feautures; elements such as fonts, colors, or custom views. It's also a good place for `UIKit` and `AppKit` extensions that you come up with.
+
+These elements can be placed in a UI framework that the feature frameworks depend on.
 
 ## Feature
 
@@ -203,7 +238,7 @@ We're looking forward to your improvements!
 # Share
 If your project were alerady using a similar modularized setup, or you moved towards this direction, you can share your experience in this section. Open a merge request and do not hesitate to share it!
 
-## Thanks
+# Thanks
 
 Special thanks to all the contributors listed below that have helped to make this reference possible and spread the idea of modularizing code:
 
@@ -241,3 +276,4 @@ Special thanks to all the contributors listed below that have helped to make thi
 - **Framework vs Library** - [Link](http://www.knowstack.com/framework-vs-library-cocoa-ios/)
 - **Static and Dynamic Libraries** - [Link](https://pewpewthespells.com/blog/static_and_dynamic_libraries.html)
 - **The Unofficial Guide to xccconfig files** - [Link](https://pewpewthespells.com/blog/xcconfig_guide.html)
+- **Microservices** - [Link](https://martinfowler.com/articles/microservices.html)
