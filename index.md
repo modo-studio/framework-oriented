@@ -203,7 +203,10 @@ pandora create Search com.myorg
 {% endhighlight %}
 
 ### [SwiftPlate](https://github.com/JohnSundell/SwiftPlate)
-Similarly, SwiftPlate generates cross platform Swift framework projects from the command line. Projects will support CocoaPods, Carthage, Swift Package Manager, iOS/macOS/watchOS/tvOS/Linux.
+Easily generate cross platform Swift framework projects from the command line. SwiftPlate will generate Xcode projects for you in seconds, that support:
+
+ - [x] CocoaPods, Carthage, Swift Package Manager
+ - [x] iOS/ macOS / watchOS / tvOS / Linux
 
 **Example: Creating a framework**
 {% highlight bash %}
