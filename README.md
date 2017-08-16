@@ -9,7 +9,7 @@ The repository is a reference to Framework Oriented Programming for :apple: plat
 
 ## How to run the website locally
 
-1. Git clone theh repository with `git clone https://github.com/carambalabs/framework-oriented.git`
+1. Git clone the repository with `git clone https://github.com/carambalabs/framework-oriented.git`
 2. Install gem dependencies with `bundle install`
 3. Run the server with `bundle exec jekyll serve`
 
