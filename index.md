@@ -76,7 +76,7 @@ class Client {
 }
 {% endhighlight %}
 
-Other tools, will be instantiated by the feature that needs it. Depending on the expensiveness of its creation, features might lazily load it, or get set up at startup time. A good example of these would be the `Store`:
+Other tools will be instantiated by the feature that needs it. Depending on the expensiveness of its creation, features might lazily load it, or get set up at startup time. A good example of these would be the `Store`:
 
 {% highlight swift %}
 import Core
@@ -231,7 +231,7 @@ swiftplate
 
 ## How to setup the project
 
-1. Git clone theh repository with `git clone https://gitlab.com/caramba/framework-oriented.git`
+1. Git clone the repository with `git clone https://gitlab.com/caramba/framework-oriented.git`
 2. Install gem dependencies with `bundle install`
 3. Run the server with `bundle exec jekyll serve`
 4. Open [http://127.0.0.1:4000](http://127.0.0.1:4000)
