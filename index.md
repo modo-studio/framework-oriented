@@ -3,6 +3,13 @@ layout: default
 title: {{ site.name }}
 ---
 
+# ~~Framework Oriented Programming~~ µFeatures ️
+
+Inspired by backend microservices, framework oriented programming has been renamed to µFeatures. You can check out the [GitHub Organization](https://github.com/microfeatures) and read more about the architecture on the [guidelines repository](https://github.com/microfeatures/guidelines).
+
+![](/assets/images/microfeatures.png)
+
+<!--
 # Context
 
 Traditionally applications have been single-target. When projects evolve, and the target and the team grow, working with a monolith project becomes very hard:
@@ -281,3 +288,4 @@ Special thanks to all the contributors listed below that have helped to make thi
 - **The Unofficial Guide to xccconfig files** - [Link](https://pewpewthespells.com/blog/xcconfig_guide.html)
 - **Microservices** - [Link](https://martinfowler.com/articles/microservices.html)
 - **Framework Oriented Programming and It's Relation to OOP** - [Link](https://christiantietze.de/posts/2017/01/oop-framework-oriented-programming/)
+-->
